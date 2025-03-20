@@ -2,6 +2,7 @@ package kalkulator;
 
 public class Calculator {
 	private int state = 0;
+	private boolean err = false;
 
 	public int getState() {
 		return state;
@@ -17,6 +18,18 @@ public class Calculator {
 
 	public void mult(int value){
 		state *= value;
+	}
+
+	public void sub(int value){
+		state -= value;
+	}
+
+	public void div(int value){
+		if (value == 0) {
+			err = true;
+		} else {
+			state /= value;
+		}
 	}
 
 }
