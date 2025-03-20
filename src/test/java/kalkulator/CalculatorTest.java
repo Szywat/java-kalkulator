@@ -87,4 +87,38 @@ public class CalculatorTest {
 		sut.div(0);
 		assertEquals("1 / 0 = 1 (nie zmieniamy wartości przez error)", 1, sut.getState());
 	}
+
+	@Test
+	public void testSaveMemory() {
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.saveMem(); // zawiera 1
+		assertEquals("Memory: 1", 1, sut.getMem());
+	}
+
+	@Test
+	public void testUseMemory() {
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.saveMem(); // zawiera 1
+		sut.useMem(); // dodaje 1
+		assertEquals("1 +(M 1) = 2", 2, sut.getState());
+	}
+
+	@Test
+	public void testAddMemory(){
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.addMem();
+		assertEquals("(M 0)+1 = (M 1)", 1, sut.getMem());
+	}
+
+	@Test
+	public void testSubMemory(){
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.subMem();
+		assertEquals("(M 0)-1 = (M -1)", -1, sut.getMem());
+	}
+
 }
