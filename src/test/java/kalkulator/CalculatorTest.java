@@ -48,4 +48,43 @@ public class CalculatorTest {
 		assertEquals("1*0 = 0", 0, sut.getState());
 	}
 
+	@Test
+	public void testSubOne() {
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.sub(1);
+		assertEquals("1-1 = 0", 0, sut.getState());
+	}
+
+	@Test
+	public void testSubNeg() {
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.sub(-1);
+		assertEquals("1-(-1) = 2", 2, sut.getState());
+	}
+
+	@Test
+	public void testDivTenByTwo() {
+		Calculator sut = new Calculator();
+		sut.setState(10);
+		sut.div(2);
+		assertEquals("10 / 2 = 5", 5, sut.getState());
+	}
+
+	@Test
+	public void testDivTenByNeg() {
+		Calculator sut = new Calculator();
+		sut.setState(10);
+		sut.div(-2);
+		assertEquals("10 / (-2) = -5", -5, sut.getState());
+	}
+
+	@Test
+	public void testDivByZero() {
+		Calculator sut = new Calculator();
+		sut.setState(1);
+		sut.div(0);
+		assertEquals("1 / 0 = 1 (nie zmieniamy wartości przez error)", 1, sut.getState());
+	}
 }
