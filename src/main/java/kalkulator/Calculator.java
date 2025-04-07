@@ -53,4 +53,25 @@ public class Calculator {
 		return memory;
 	}
 
+	public boolean getError(){
+		return err;
+	}
+
+	public void power(int value){
+		if (value == 0) {
+			state = 1;
+		} else if (value < 0) {
+			int result = 1;
+			for (int i = 0; i > value; i--) {
+				result /= state;
+			}
+			state = result;
+		} else {
+			int result = 1;
+			for (int i = 0; i < value; i++) {
+				result *= state;
+			}
+			state = result;
+		}
+	}
 }
